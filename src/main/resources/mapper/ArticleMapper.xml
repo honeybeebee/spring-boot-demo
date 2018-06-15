@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xulinfeng.system.dao.mapper.ArticleMapper">
+    <insert id="insert" parameterType="com.xulinfeng.system.dao.entity.Article">
+        insert into blog_article (id,categoryId, articleTitle, articleCover,
+        articleLink, articleViewCount, articleCommentCount,
+        sortNo, articleViewPassword, createTime,
+        updateTime, `status`, articleSummary,
+        articleContent, articleTags)
+        values (#{id, jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}, #{articleTitle,jdbcType=VARCHAR}, #{articleCover,jdbcType=VARCHAR},
+        #{articleLink,jdbcType=VARCHAR}, #{articleViewCount,jdbcType=INTEGER}, #{articleCommentCount,jdbcType=INTEGER},
+        #{sortNo,jdbcType=BIGINT}, #{articleViewPassword,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{articleSummary,jdbcType=LONGVARCHAR},
+        #{articleContent,jdbcType=LONGVARCHAR}, #{articleTags,jdbcType=LONGVARCHAR})
+    </insert>
+
+
+    <select id="queryList" resultType="com.xulinfeng.system.dao.entity.Article">
+        select * from blog_article
+    </select>
+</mapper>
